@@ -39,9 +39,11 @@ Crafty.c('Block', {
 Crafty.c('Unit', {
 	init: function() {
 		this.requires('Actor, Fourway, Color, Collision')
+			.addComponent('Mouse')
 			.fourway(4) // Takes in speed as a param
 			.color('red')
-			.stopOnSolids();
+			.stopOnSolids()
+			.selectable();
 	},
 	// Stop movement upon collision with a solid entity
 	stopOnSolids: function() {
@@ -56,5 +58,10 @@ Crafty.c('Unit', {
 			this.x -= this._movement.x;
 			this.y -= this._movement.y;
 		}
-	}
+	},
+	selectable: function() {
+		this.bind('Click', function() {
+			console.log('clicked');
+		});
+	},
 });
