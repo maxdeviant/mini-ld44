@@ -1,7 +1,7 @@
 Game = {
     map_grid: {
-        width: 64,
-        height: 32,
+        width: 100,
+        height: 64,
         tile: {
             width: 20,
             height: 20
@@ -16,8 +16,10 @@ Game = {
     },
     
     start: function() {
-        Crafty.init(Game.width(), Game.height());
+        Crafty.init($(document).width() - 20, $(document).height() - 20);
         Crafty.background('green');
+		
+		Crafty.viewport.mouselook(true);
 		
 		Crafty.e('Unit').at(5, 5);
         

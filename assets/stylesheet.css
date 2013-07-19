@@ -1,3 +1,4 @@
-html {
-	overflow: hidden;
+#cr-stage {
+	width: 640;
+	height: 480;
 }
