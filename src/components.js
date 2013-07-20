@@ -33,6 +33,7 @@ Crafty.c('Block', {
 	init: function() {
 		this.requires('Actor, Color, Solid');
 		this.color('black');
+		this.selected = false;
 	},
 });
 
@@ -40,7 +41,7 @@ Crafty.c('Unit', {
 	init: function() {
 		this.requires('Actor, Fourway, Color, Collision')
 			.addComponent('Mouse')
-			.fourway(4) // Takes in speed as a param
+			//.fourway(4) // Takes in speed as a param
 			.color('red')
 			.stopOnSolids()
 			.selectable();
@@ -61,7 +62,8 @@ Crafty.c('Unit', {
 	},
 	selectable: function() {
 		this.bind('Click', function() {
-			console.log('clicked');
+			this.selected = true;
+			console.log(this.selected);
 		});
 	},
 });
