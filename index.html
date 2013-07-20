@@ -12,11 +12,20 @@
 	<script>
         window.addEventListener('load', Game.start);
     </script>
+	<script>
+		$(window).bind('keyup', function(e) {
+			var code = (e.keyCode ? e.keyCode : e.which);
+			if (code == 13) { // 13: Enter, 191: /
+				$('#terminal').val('').toggle().focus();
+			}
+		});
+		
+	</script>
 </head>
 <body>
     <div id="cr-stage">
 		<div id="forms">
-		<input type="text" />
+		<input id="terminal" type="text" />
 		</div>
 	</div>
 </body>

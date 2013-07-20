@@ -2,9 +2,10 @@
 	margin: 20px auto 0;
 }
 
-input {
+#terminal {
 	position: absolute;
 	left: 10%;
 	top: 90%;
-	z-index: 10000;
+	z-index: 1000;
+	display: none;
 }
