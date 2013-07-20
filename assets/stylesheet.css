@@ -1,4 +1,10 @@
 #cr-stage {
-	margin: 20px;
-	auto 0;
+	margin: 20px auto 0;
+}
+
+input {
+	position: absolute;
+	left: 10%;
+	top: 90%;
+	z-index: 10000;
 }
