@@ -48,12 +48,30 @@ Crafty.c('Grass', {
 
 Crafty.c('Unit', {
 	init: function() {
-		this.requires('Actor, Fourway, Color, Collision, MoveTo')
+		this.requires('Actor, Fourway, Color, Collision, MoveTo, spr_unit, SpriteAnimation')
 			.addComponent('Mouse')
 			//.fourway(4) // Takes in speed as a param
-			.color('red')
+			.animate('UnitMovingUp', 1, 0, 2)
+			.animate('UnitMovingRight', 3, 0, 2)
+			.animate('UnitMovingDown', 0, 0, 2)
+			.animate('UnitMovingLeft', 2, 0, 2)
 			.stopOnSolids()
 			.selectable();
+		
+		var animation_speed = 8;
+		this.bind('NewDirection', function(data) {
+			if (data.x > 0) {
+				this.animate('UnitMovingRight', animation_speed, -1)
+			} else if (data.x < 0) {
+				this.animate('UnitMovingLeft', animation_speed, -1)
+			} else if (data.y > 0) {
+				this.animate('UnitMovingDown', animation_speed, -1)
+			} else if (data.y < 0) {
+				this.animate('UnitMovingUp', animation_speed, -1)
+			} else {
+				this.stop();
+			}
+		});
 	},
 	// Stop movement upon collision with a solid entity
 	stopOnSolids: function() {
@@ -83,8 +101,8 @@ Crafty.c('Structure', {
 		.color('blue')
 		.selectable();
 		this.attr({
-			w: 80,
-			h: 40
+			w: 128,
+			h: 64
 		});
 	},
 	selectable: function() {

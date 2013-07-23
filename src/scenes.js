@@ -15,7 +15,7 @@ Crafty.scene('Game', function() {
 	}
 	
 	Entities.push(Crafty.e('Unit').at(5, 5));
-	Entities.push(Crafty.e('Unit').color('orange').at(10, 10));
+	Entities.push(Crafty.e('Unit').at(10, 10));
 	Entities.push(Crafty.e('Structure').at(20, 20));
 });
 
@@ -24,6 +24,10 @@ Crafty.scene('Loading', function() {
 		Crafty.sprite(32, 'assets/terrain.png', {
 			spr_grass: [0, 0]
 		});
+		
+		Crafty.sprite(32, 'assets/units.png', {
+			spr_unit: [0, 0]
+		}, 0, 2);
 
 		Crafty.scene('Game');
 	});
