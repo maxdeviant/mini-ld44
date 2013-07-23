@@ -26,9 +26,9 @@ Crafty.c('Grid', {
 Crafty.c('Actor', {
 	init: function() {
 		this.requires('2D, Canvas, Grid');
-		this.attr({
+/*		this.attr({
 			selected: false
-		});
+		});*/
 	},
 });
 
@@ -54,7 +54,6 @@ Crafty.c('Unit', {
 		
 		return this;
 	},
-	
 	stopMovement: function() {
 		this._speed = 0;
 		if (this._movement) {
@@ -70,9 +69,22 @@ Crafty.c('Unit', {
 	},
 });
 
-Crafty.c('Selected', {
+Crafty.c('Structure', {
 	init: function() {
-		
+		this.requires('Actor, Color, Collision, Solid')
+		.addComponent('Mouse')
+		.color('blue')
+		.selectable();
+		this.attr({
+			w: 80,
+			h: 40
+		});
+	},
+	selectable: function() {
+		this.bind('Click', function() {
+			deselect(Entities);
+			this.selected = true;
+		});
 	},
 });
 
@@ -91,6 +103,8 @@ Crafty.c('MoveTo', {
 	
 			this._target = { x: e.realX, y: e.realY };
 			this.bind("EnterFrame", this._enterFrame);
+		} else if (e.mouseButton == Crafty.mouseButtons.LEFT) {
+			deselect(Entities);
 		}
 	},
 
@@ -111,6 +125,7 @@ Crafty.c('MoveTo', {
 				x: this.x,
 				y: this.y
 			};
+			
 			this.x = this._target.x;
 			this.y = this._target.y;
 

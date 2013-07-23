@@ -3,6 +3,7 @@ Crafty.scene('Game', function() {
 	
 	Entities.push(Crafty.e('Unit').at(5, 5));
 	Entities.push(Crafty.e('Unit').color('orange').at(10, 10));
+	Entities.push(Crafty.e('Structure').at(20, 20));
 	
 	// Generate world
 	for (var x = 0; x < Game.map_grid.width; x++) {

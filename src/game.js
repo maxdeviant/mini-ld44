@@ -23,8 +23,10 @@ Game = {
     }
 }
 
+// Holds all entities currently in the game
 var Entities = [];
 
+// Deselects all entities
 this.deselect = function(E) {
 	if (E.length > 1) {
 		for (var i = 0; i < E.length; i++) {
