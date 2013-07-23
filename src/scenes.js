@@ -1,16 +1,8 @@
 Crafty.scene('Game', function() {
 	Crafty.viewport.mouselook(true);
 	
-	var Entities = [];
-		
 	Entities.push(Crafty.e('Unit').at(5, 5));
 	Entities.push(Crafty.e('Unit').color('orange').at(10, 10));
-	
-	for (var i = 0; i < Entities.length; i++) {
-		if (Entities[i].selected === true) {
-			
-		}
-	}
 	
 	// Generate world
 	for (var x = 0; x < Game.map_grid.width; x++) {
@@ -21,7 +13,7 @@ Crafty.scene('Game', function() {
 				Crafty.e('Block').at(x, y);
 			}
 		}
-	}
+	}	
 });
 
 Crafty.scene('Loading', function() {

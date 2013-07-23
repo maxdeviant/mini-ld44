@@ -36,7 +36,6 @@ Crafty.c('Block', {
 	init: function() {
 		this.requires('Actor, Color, Solid');
 		this.color('black');
-		this.selected = false;
 	},
 });
 
@@ -65,16 +64,21 @@ Crafty.c('Unit', {
 	},
 	selectable: function() {
 		this.bind('Click', function() {
+			deselect(Entities);
 			this.selected = true;
-			console.log(this.selected);
 		});
 	},
 });
 
-	
+Crafty.c('Selected', {
+	init: function() {
+		
+	},
+});
+
 // MoveTo by Sren Bramer Schmidt (http://github.com/sorenbs/MoveTo)
 // Modified ever so slighty to fit my needs
-Crafty.c("MoveTo", {
+Crafty.c('MoveTo', {
 	_speed: 4,
 
 	_onmousedown: function (e) {
@@ -146,6 +150,5 @@ Crafty.c("MoveTo", {
 		this.oldDirection = { x: 0, y: 0 }
 
 		Crafty.addEvent(this, Crafty.stage.elem, "mousedown", this._onmousedown);
-
 	}
 });

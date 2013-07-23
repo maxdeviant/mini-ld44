@@ -22,3 +22,13 @@ Game = {
 		Crafty.scene('Game');
     }
 }
+
+var Entities = [];
+
+this.deselect = function(E) {
+	if (E.length > 1) {
+		for (var i = 0; i < E.length; i++) {
+			E[i].selected = false;
+		}
+	}
+}
