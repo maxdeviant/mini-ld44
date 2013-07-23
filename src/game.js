@@ -3,8 +3,8 @@ Game = {
         width: 100,
         height: 64,
         tile: {
-            width: 20,
-            height: 20
+            width: 32,
+            height: 32
         }
     },
     
@@ -19,7 +19,7 @@ Game = {
         Crafty.init($(document).width() - 50, $(document).height() - 50);
         Crafty.background('green');
 		
-		Crafty.scene('Game');
+		Crafty.scene('Loading');
     }
 }
 

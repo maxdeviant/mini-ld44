@@ -5,7 +5,6 @@ Crafty.c('Grid', {
 			h: Game.map_grid.tile.height
 		});
 	},
-	//
 	at: function(x, y) {
 		if (x === undefined && y === undefined) {
 			return {
@@ -26,9 +25,11 @@ Crafty.c('Grid', {
 Crafty.c('Actor', {
 	init: function() {
 		this.requires('2D, Canvas, Grid');
-/*		this.attr({
-			selected: false
-		});*/
+		this.attr({
+			//selected: false
+			x: 32,
+			y: 32
+		});
 	},
 });
 
@@ -37,6 +38,12 @@ Crafty.c('Block', {
 		this.requires('Actor, Color, Solid');
 		this.color('black');
 	},
+});
+
+Crafty.c('Grass', {
+	init: function() {
+		this.requires('Actor, spr_grass');
+	}
 });
 
 Crafty.c('Unit', {
