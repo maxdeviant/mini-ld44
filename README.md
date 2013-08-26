@@ -1,3 +1,6 @@
+**Due to real life obligations and just an overall lack of time I'm pushing this public for now.**
+========
+
 mini-ld44
 =========
 
