@@ -51,9 +51,10 @@ Crafty.c('Unit', {
 		this.requires('Actor, Fourway, Color, Collision, MoveTo, spr_unit, SpriteAnimation')
 			.addComponent('Mouse')
 			//.fourway(4) // Takes in speed as a param
-			.animate('UnitMovingUp', 1, 0, 2)
-			.animate('UnitMovingRight', 3, 0, 2)
-			.animate('UnitMovingDown', 0, 0, 2)
+			// .animate('AnimationName', startIndex, frames, endIndex)
+			.animate('UnitMovingUp', 1, 0, 1)
+			.animate('UnitMovingRight', 3, 0, 3)
+			.animate('UnitMovingDown', 0, 0, 0)
 			.animate('UnitMovingLeft', 2, 0, 2)
 			.stopOnSolids()
 			.selectable();
